@@ -105,33 +105,6 @@ static OSStatus LaunchSystemEvents(ProcessSerialNumber *psnPtr)
             appParams.application = &appRef;
             
             err = LSOpenApplication(&appParams, psnPtr);
-        } else {
-            FSSpec              appSpec;
-            LaunchParamBlockRec lpb;
-            
-            // Do it the compatible way on earlier systems.
-            
-            // I launch System Events using LaunchApplication, rather than 
-            // Launch Services, because LaunchApplication gives me back 
-            // the ProcessSerialNumber.  Unfortunately this requires me to 
-            // get an FSSpec for the application because there's no 
-            // FSRef version of Launch Application.
-            
-            if (err == noErr) {
-                err = FSGetCatalogInfo(&appRef, kFSCatInfoNone, NULL, NULL, &appSpec, NULL);
-            }
-            if (err == noErr) {
-                memset(&lpb, 0, sizeof(lpb));
-                lpb.launchBlockID      = extendedBlock;
-                lpb.launchEPBLength    = extendedBlockLen;
-                lpb.launchControlFlags = launchContinue | launchNoFileFlags;
-                lpb.launchAppSpec      = &appSpec;
-                
-                err = LaunchApplication(&lpb);
-            }
-            if (err == noErr) {
-                *psnPtr = lpb.launchProcessSN;
-            }
         }
     }
  
