@@ -1,0 +1,7 @@
+Isolator:
+	- get off CTGradient, move to NSGradient
+	- kill LoginItemsAE.(hc)
+	- properly link in Sparkle
+		- remove deprecated callbacks and calls
+	- zero warnings
+	- build against x86_64
