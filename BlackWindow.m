@@ -217,8 +217,8 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 	[self _setFlags:(CGSTagSticky | CGSTagNoShadow | CGSTagExposeFade) clear:0];
 	
 	// window is present on all spaces
-	if ([defaults boolForKey:@"RunningOnLeopard"])
-		HIWindowChangeAvailability((HIWindowRef) [self windowRef], kHIWindowExposeHidden | kHIWindowVisibleInAllSpaces, 0);
+//	if ([defaults boolForKey:@"RunningOnLeopard"])
+//		HIWindowChangeAvailability((HIWindowRef) [self windowRef], kHIWindowExposeHidden | kHIWindowVisibleInAllSpaces, 0);
 	
 }
 
