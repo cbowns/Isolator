@@ -5,3 +5,5 @@ Isolator:
 		- remove deprecated callbacks and calls
 	- zero warnings
 	- build against x86_64
+	- deprecate 10.5 or properly ifdef stuff in setFlagsAppropriately
+		- need to make sure we use new Spaces API for 10.6 and GREATER
