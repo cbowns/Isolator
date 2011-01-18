@@ -123,7 +123,7 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 	}
 	else if (filterType==2) {
 		filterName = @"CIBloom";
-		if ([defaults boolForKey:@"RunningOnSnowLeopard"]) {
+		if ([defaults boolForKey:@"RunningOnSnowLeopard"]) { // todo fix this for > 10.6
 			optionNames = [NSArray arrayWithObjects:@"inputRadius", @"inputIntensity", nil];
 			optionVals  = [NSArray arrayWithObjects:[NSNumber numberWithFloat:(paramVal*3)*fraction], [NSNumber numberWithFloat:0.75], nil];
 		} else {
