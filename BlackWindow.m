@@ -212,9 +212,13 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 	// kHIWindowExposeHidden does nothing ?!
 	// kHIWindowVisibleInAllSpaces makes window visible in all spaces
 	
-	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+	// See also: http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSWindow_Class/Reference/Reference.html%23//apple_ref/occ/instm/NSWindow/setCollectionBehavior:
+	
+//	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
 	[self _setFlags:(CGSTagSticky | CGSTagNoShadow | CGSTagExposeFade) clear:0];
+
+// only available on 10.6 and later:
 	
 #if defined(MAC_OS_X_VERSION_10_6)
 	// && MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
