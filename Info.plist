@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Isolator</string>
 	<key>CFBundleExecutable</key>
 	<string>Isolator</string>
 	<key>CFBundleIconFile</key>
@@ -19,9 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>4.5beta</string>
-	<key>CFBundleDisplayName</key>
-	<string>Isolator</string>
+	<string>4.6</string>
 	<key>LSUIElement</key>
 	<string>1</string>
 	<key>NSMainNibFile</key>
