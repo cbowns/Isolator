@@ -216,9 +216,15 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 
 	[self _setFlags:(CGSTagSticky | CGSTagNoShadow | CGSTagExposeFade) clear:0];
 	
-	// window is present on all spaces
+#if defined(MAC_OS_X_VERSION_10_6)
+	// && MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
+	// via http://stackoverflow.com/questions/3190388/portable-code-for-deprecated-userinfo-dictionary-key-cocoa
+	[self setCollectionBehavior:(NSWindowCollectionBehaviorStationary|NSWindowCollectionBehaviorMoveToActiveSpace)];
+#elif defined (MAC_OS_X_VERSION_10_5)
+// window is present on all spaces
 //	if ([defaults boolForKey:@"RunningOnLeopard"])
-//		HIWindowChangeAvailability((HIWindowRef) [self windowRef], kHIWindowExposeHidden | kHIWindowVisibleInAllSpaces, 0);
+	HIWindowChangeAvailability((HIWindowRef) [self windowRef], kHIWindowExposeHidden | kHIWindowVisibleInAllSpaces, 0);
+#endif
 	
 }
 

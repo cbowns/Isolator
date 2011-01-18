@@ -12,6 +12,7 @@
 #import <QuartzCore/CIVector.h>
 #import <Cocoa/Cocoa.h>
 #include <ApplicationServices/ApplicationServices.h>
+#import <AppKit/NSWindow.h>
 
 @interface BlackWindow : NSWindow
 {
