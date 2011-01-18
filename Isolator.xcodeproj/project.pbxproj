@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6534DBEA12E50FAB00B70087 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 65D0B15B1215A61900752C66 /* Sparkle.framework */; };
 		65D0B14C1215A44B00752C66 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0B1431215A44B00752C66 /* SRCommon.m */; };
 		65D0B14D1215A44B00752C66 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0B1451215A44B00752C66 /* SRKeyCodeTransformer.m */; };
 		65D0B14E1215A44B00752C66 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0B1471215A44B00752C66 /* SRRecorderCell.m */; };
@@ -42,6 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6534DBEA12E50FAB00B70087 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
