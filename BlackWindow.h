@@ -7,7 +7,7 @@
 //
 
 #import "BlackView.h"
-#include "CGSPrivate.h"
+#import "CGSPrivate.h"
 #import <QuartzCore/CIFilter.h>
 #import <QuartzCore/CIVector.h>
 #import <Cocoa/Cocoa.h>
