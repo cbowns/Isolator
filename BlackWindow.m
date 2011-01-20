@@ -213,23 +213,22 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 	// kHIWindowVisibleInAllSpaces makes window visible in all spaces
 	
 	// See also: http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSWindow_Class/Reference/Reference.html%23//apple_ref/occ/instm/NSWindow/setCollectionBehavior:
-	
-//	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
 
 	[self _setFlags:(CGSTagSticky | CGSTagNoShadow | CGSTagExposeFade) clear:0];
 
-// only available on 10.6 and later:
-	
-#if defined(MAC_OS_X_VERSION_10_6)
-	// && MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
-	// via http://stackoverflow.com/questions/3190388/portable-code-for-deprecated-userinfo-dictionary-key-cocoa
-	[self setCollectionBehavior:(NSWindowCollectionBehaviorStationary|NSWindowCollectionBehaviorMoveToActiveSpace)];
-#elif defined (MAC_OS_X_VERSION_10_5)
-// window is present on all spaces
-//	if ([defaults boolForKey:@"RunningOnLeopard"])
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
+	[self setCollectionBehavior:(NSWindowCollectionBehaviorMoveToActiveSpace|NSWindowCollectionBehaviorStationary)];
+	NSLog(@"10.6!");
+#else // not 10.6 or greater
+	NSLog(@"10.5?");
+#if not defined(__LP64__)
 	HIWindowChangeAvailability((HIWindowRef) [self windowRef], kHIWindowExposeHidden | kHIWindowVisibleInAllSpaces, 0);
+	NSLog(@"LP64!");
+#else // not __LP64__
+	NSLog(@"not LP64?!");
 #endif
-	
+#endif
 }
 
 - (void)_setFlags:(CGSWindowTag)toSet clear:(CGSWindowTag)toClear
