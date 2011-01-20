@@ -205,17 +205,6 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 }
 
 - (void) setFlagsAppropriately {
-	// this is all slightly mysterious, but I think:
-	// CGSTagSticky makes the window not show up in F9
-	// CGSTagExposeFade makes it not show up in F8 or F10
-	// CGSTagNoShadow gets rid of shadow
-	// kHIWindowExposeHidden does nothing ?!
-	// kHIWindowVisibleInAllSpaces makes window visible in all spaces
-	
-	// See also: http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ApplicationKit/Classes/NSWindow_Class/Reference/Reference.html%23//apple_ref/occ/instm/NSWindow/setCollectionBehavior:
-
-
-	[self _setFlags:(CGSTagSticky | CGSTagNoShadow | CGSTagExposeFade) clear:0];
 
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
 	[self setCollectionBehavior:(NSWindowCollectionBehaviorMoveToActiveSpace|NSWindowCollectionBehaviorStationary)];
@@ -223,7 +212,8 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 #else // not 10.6 or greater
 	NSLog(@"10.5?");
 #if not defined(__LP64__)
-	HIWindowChangeAvailability((HIWindowRef) [self windowRef], kHIWindowExposeHidden | kHIWindowVisibleInAllSpaces, 0);
+//	this is only available in 32-bit 10.5 SDK
+	[self _setFlags:(CGSTagSticky | CGSTagNoShadow | CGSTagExposeFade) clear:0];
 	NSLog(@"LP64!");
 #else // not __LP64__
 	NSLog(@"not LP64?!");
