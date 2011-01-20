@@ -601,7 +601,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	info.processInfoLength = sizeof(ProcessInfoRec);
 	info.processName = nil;
 	FSSpec tempFSSpec;
-#if __LP64__
+#ifdef __LP64__
 	info.processAppRef = &tempFSSpec;
 #else
 	info.processAppSpec = &tempFSSpec;
