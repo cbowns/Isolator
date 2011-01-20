@@ -1,11 +1,21 @@
 Isolator:
 	- get off CTGradient, move to NSGradient
 	- kill LoginItemsAE.(hc)
-	- properly link in Sparkle @done(2011-01-17)
-		- remove deprecated callbacks and calls
 	- zero warnings
-	- build against x86_64 @done(2011-01-19)
-	- deprecate 10.5 or properly ifdef stuff in setFlagsAppropriately @done(2011-01-19)
+
+
+
+
+
+
+
+
+	
+Archive:
+	- properly link in Sparkle @done(2011-01-17) @project(Isolator)
+		- remove deprecated callbacks and calls
+	- build against x86_64 @done(2011-01-19) @project(Isolator)
+	- deprecate 10.5 or properly ifdef stuff in setFlagsAppropriately @done(2011-01-19) @project(Isolator)
 		- need to make sure we use new Spaces API for 10.6 and GREATER @done(2011-01-19)
 		10.5 running 64-bit: can I use the HIWindow API?
 			- DON'T KNOW THIS YET
