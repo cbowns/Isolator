@@ -28,7 +28,7 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 	return [self initWithContentRect:frame styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
 }
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(unsigned int)styleMask backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)styleMask backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
 {
 	[super initWithContentRect:contentRect styleMask:styleMask backing:bufferingType defer:deferCreation];
 
