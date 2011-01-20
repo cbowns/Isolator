@@ -210,12 +210,12 @@ extern void *CGSReleaseGenericObj(void*);
 
 // Added BW May 2008
 extern OSStatus CGSNewConnection(const void **attr, CGSConnection *id);
-typedef int CGSCIFilterID;
+typedef uint32_t CGSCIFilterID;
 
 // Added CRB Jan 2011 from http://code.google.com/p/undocumented-goodness/source/browse/trunk/CoreGraphics/CGSPrivate.h
 # pragma mark Window Core Image Filters
 
-typedef void *CGSWindowFilterRef;
+typedef uint32_t CGSWindowFilterRef;
 extern CGError CGSNewCIFilterByName(CGSConnection cid, CFStringRef filterName, CGSWindowFilterRef *outFilter);
 extern CGError CGSAddWindowFilter(CGSConnection cid, CGSWindowID wid, CGSWindowFilterRef filter, int flags);
 extern CGError CGSRemoveWindowFilter(CGSConnection cid, CGSWindowID wid, CGSWindowFilterRef filter);
