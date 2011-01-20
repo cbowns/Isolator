@@ -207,7 +207,7 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 - (void) setFlagsAppropriately {
 
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
-	[self setCollectionBehavior:(NSWindowCollectionBehaviorMoveToActiveSpace|NSWindowCollectionBehaviorStationary)];
+	[self setCollectionBehavior:(NSWindowCollectionBehaviorCanJoinAllSpaces|NSWindowCollectionBehaviorTransient)];
 	NSLog(@"10.6!");
 #else // not 10.6 or greater
 	NSLog(@"10.5?");
