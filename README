@@ -1,0 +1,1 @@
+Isolator was originally written [Willmore](http://willmore.eu/software/isolator/). I'm working on cleaning the project up a bit: it needs to build with a newer version of Sparkle, and needs to move off some private APIs to build for 64-bit on Snow Leopard.
