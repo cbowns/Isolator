@@ -5,5 +5,9 @@ Isolator:
 		- remove deprecated callbacks and calls
 	- zero warnings
 	- build against x86_64
-	- deprecate 10.5 or properly ifdef stuff in setFlagsAppropriately
-		- need to make sure we use new Spaces API for 10.6 and GREATER
+	- deprecate 10.5 or properly ifdef stuff in setFlagsAppropriately @done(2011-01-19)
+		- need to make sure we use new Spaces API for 10.6 and GREATER @done(2011-01-19)
+		10.5 running 64-bit: can I use the HIWindow API?
+			- DON'T KNOW THIS YET
+		10.5 running 32-bit: HIWindow API should Just Work. @done(2011-01-19)
+		10.6: use new setCollectionBehavior: API. @done(2011-01-19)
