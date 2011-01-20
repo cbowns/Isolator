@@ -32,6 +32,7 @@ kCGErrorInvalidConnection = 1002,
 typedef int		CGSConnection;
 typedef int		CGSWindow;
 typedef int		CGSValue;
+#define CGSWindowID CGSWindow
 
 //// CONSTANTS ////
 
@@ -211,3 +212,12 @@ extern void *CGSReleaseGenericObj(void*);
 extern OSStatus CGSNewConnection(const void **attr, CGSConnection *id);
 typedef int CGSCIFilterID;
 
+// Added CRB Jan 2011 from http://code.google.com/p/undocumented-goodness/source/browse/trunk/CoreGraphics/CGSPrivate.h
+# pragma mark Window Core Image Filters
+
+typedef void *CGSWindowFilterRef;
+extern CGError CGSNewCIFilterByName(CGSConnection cid, CFStringRef filterName, CGSWindowFilterRef *outFilter);
+extern CGError CGSAddWindowFilter(CGSConnection cid, CGSWindowID wid, CGSWindowFilterRef filter, int flags);
+extern CGError CGSRemoveWindowFilter(CGSConnection cid, CGSWindowID wid, CGSWindowFilterRef filter);
+extern CGError CGSReleaseCIFilter(CGSConnection cid, CGSWindowFilterRef filter);
+extern CGError CGSSetCIFilterValuesFromDictionary(CGSConnection cid, CGSWindowFilterRef filter, CFDictionaryRef filterValues);
