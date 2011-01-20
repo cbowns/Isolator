@@ -2,7 +2,7 @@ Isolator:
 	- get off CTGradient, move to NSGradient
 	- kill LoginItemsAE.(hc)
 	- zero warnings
-
+	- fix CG API errors
 
 
 
