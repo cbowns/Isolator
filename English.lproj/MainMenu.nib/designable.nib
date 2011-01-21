@@ -294,7 +294,7 @@
 											<object class="NSTextField" id="275571486">
 												<reference key="NSNextResponder" ref="42049056"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{99, 3}, {275, 29}}</string>
+												<string key="NSFrame">{{101, 5}, {275, 29}}</string>
 												<reference key="NSSuperview" ref="42049056"/>
 												<reference key="NSNextKeyView"/>
 												<bool key="NSEnabled">YES</bool>
@@ -365,7 +365,7 @@
 													<reference key="NSSupport" ref="381971920"/>
 													<reference key="NSControlView" ref="263290219"/>
 													<int key="NSButtonFlags">1211912703</int>
-													<int key="NSButtonFlags2">130</int>
+													<int key="NSButtonFlags2">2</int>
 													<reference key="NSNormalImage" ref="155577858"/>
 													<reference key="NSAlternateImage" ref="560464536"/>
 													<string key="NSAlternateContents"/>
@@ -990,7 +990,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 														<reference key="NSControlView" ref="750529195"/>
 														<int key="NSTag">1</int>
 														<int key="NSButtonFlags">1211912703</int>
-														<int key="NSButtonFlags2">128</int>
+														<int key="NSButtonFlags2">0</int>
 														<reference key="NSAlternateImage" ref="222242464"/>
 														<string key="NSAlternateContents"/>
 														<string key="NSKeyEquivalent"/>
@@ -1004,7 +1004,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSControlView" ref="750529195"/>
 														<int key="NSButtonFlags">1211912703</int>
-														<int key="NSButtonFlags2">128</int>
+														<int key="NSButtonFlags2">0</int>
 														<object class="NSImage" key="NSNormalImage" id="367861386">
 															<int key="NSImageFlags">549453824</int>
 															<string key="NSSize">{14, 15}</string>
@@ -1114,7 +1114,7 @@ AADAVMSAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSControlView" ref="750529195"/>
 														<int key="NSButtonFlags">1211912703</int>
-														<int key="NSButtonFlags2">128</int>
+														<int key="NSButtonFlags2">0</int>
 														<reference key="NSNormalImage" ref="367861386"/>
 														<reference key="NSAlternateImage" ref="222242464"/>
 														<int key="NSPeriodicDelay">400</int>
@@ -1127,7 +1127,7 @@ AADAVMSAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSControlView" ref="750529195"/>
 														<int key="NSButtonFlags">1211912703</int>
-														<int key="NSButtonFlags2">128</int>
+														<int key="NSButtonFlags2">0</int>
 														<reference key="NSNormalImage" ref="367861386"/>
 														<reference key="NSAlternateImage" ref="222242464"/>
 														<int key="NSPeriodicDelay">400</int>
@@ -1140,7 +1140,7 @@ AADAVMSAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSControlView" ref="750529195"/>
 														<int key="NSButtonFlags">1211912703</int>
-														<int key="NSButtonFlags2">128</int>
+														<int key="NSButtonFlags2">0</int>
 														<object class="NSImage" key="NSNormalImage">
 															<int key="NSImageFlags">12779520</int>
 															<object class="NSMutableArray" key="NSReps">
@@ -1190,7 +1190,7 @@ AADAVMSAAAAAAAAAAAAAAAAAAAAAAHRleHQAAAAAQ29weXJpZ2h0IEFwcGxlLCBJbmMuLCAyMDA4AA</
 													<string key="NSContents">Radio</string>
 													<reference key="NSSupport" ref="26"/>
 													<int key="NSButtonFlags">1211912703</int>
-													<int key="NSButtonFlags2">128</int>
+													<int key="NSButtonFlags2">0</int>
 													<object class="NSImage" key="NSNormalImage">
 														<int key="NSImageFlags">549453824</int>
 														<string key="NSSize">{18, 18}</string>
