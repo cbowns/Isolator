@@ -1,6 +1,6 @@
 Isolator:
-	- get off CTGradient, move to NSGradient
-	- kill LoginItemsAE.(hc)
+	- get off CTGradient, move to NSGradient @done(2011-01-20)
+	- kill LoginItemsAE.(hc), replace with LaunchServices/LSSharedFileList.h (or "Shared File Lists API" as the docs call it)
 Archive:
 	- zero warnings @done(2011-01-20) @project(Isolator)
 	- fix CG API errors @done(2011-01-20) @project(Isolator)
