@@ -383,7 +383,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	if (blackWindows) {
 		NSEnumerator *blackEnumerator = [blackWindows objectEnumerator];
 		BlackWindow *blackWindow = nil;
-		while (blackWindow = [blackEnumerator nextObject]) {
+		while ( (blackWindow = [blackEnumerator nextObject]) ) {
 			[blackWindow close];
 		}
 		[blackWindows release];
@@ -395,7 +395,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	BlackWindow* window;
 	NSRect thisRect;
 	
-	while( frame = [enumerator nextObject] ) {
+	while ( (frame = [enumerator nextObject]) ) {
 		thisRect = frame.rectValue;
 		window = [[BlackWindow alloc] initWithFrame:[frame rectValue]];
 		[blackWindows addObject:window];
@@ -407,7 +407,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	else {
 		NSEnumerator *enumerator = [blackWindows objectEnumerator];
 		BlackWindow* window;
-		while( window = [enumerator nextObject] ) {
+		while ( (window = [enumerator nextObject]) ) {
 			[window orderOut:self];
 		}
 	}
@@ -444,7 +444,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 			NSEnumerator *screenEnumerator = [screens objectEnumerator];
 			NSScreen *screen = nil;
 			NSNumber *screenID = nil;
-			while (screen = [screenEnumerator nextObject]) {
+			while ( (screen = [screenEnumerator nextObject]) ) {
 				screenID = [[screen deviceDescription] objectForKey:@"NSScreenNumber"];
 				if (!CGDisplayUsesOpenGLAcceleration((CGDirectDisplayID)[screenID intValue]))
 					hwAccel = NO;
@@ -492,7 +492,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	// level depends on whether we're hiding other apps or not
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window setLevelAsAppropriate:flipMode];
 	}
 	
@@ -572,7 +572,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 {
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window fadeInOrOut:YES];
 	}
 }
@@ -581,7 +581,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 {
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window fadeInOrOut:NO];
 	}
 }
@@ -607,7 +607,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	info.processAppSpec = &tempFSSpec;
 #endif
 
-	while (app = [appEnum nextObject]) {
+	while ( (app = [appEnum nextObject]) ) {
 		pid = [app objectForKey:@"NSApplicationProcessIdentifier"];
 		
 		if (![pid isEqual:excludePID]) {
@@ -736,7 +736,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		if (nRelevantWindows==0)
 			[window orderFrontRegardless];
 		else
@@ -754,7 +754,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window fadeInOrOut:NO];
 	}
 
@@ -778,7 +778,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	[self syncDefaults:self];
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window setColor];
 	}
 	[[statusItem view] setNeedsDisplay:YES];
@@ -789,7 +789,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	[self syncDefaults:self];
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window setOpacity];
 	}
 	[[statusItem view] setNeedsDisplay:YES];
@@ -800,7 +800,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	[self syncDefaults:self];
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window enableBlurAsAppropriate:1.0];
 	}
 }
@@ -810,7 +810,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	[self syncDefaults:self];
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window setClickThrough];
 	}
 }
@@ -868,7 +868,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 
 	NSEnumerator *enumerator = [blackWindows objectEnumerator];
 	BlackWindow* window;
-	while( window = [enumerator nextObject] ) {
+	while ( (window = [enumerator nextObject]) ) {
 		[window fadeInOrOut:YES];
 	}
 }
@@ -1070,10 +1070,10 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	NSWindow *window = nil;
 	NSWindow *blackWindow = nil;
 	
-	while (window = [winEnumerator nextObject]) {
+	while ( (window = [winEnumerator nextObject]) ) {
 		blackWinEnumerator = [blackWindows objectEnumerator];
 		isABlackWin = NO;
-		while (blackWindow = [blackWinEnumerator nextObject]) {
+		while ( (blackWindow = [blackWinEnumerator nextObject]) ) {
 			if (window==blackWindow)
 				isABlackWin = YES;
 		}
