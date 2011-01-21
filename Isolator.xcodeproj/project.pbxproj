@@ -13,7 +13,6 @@
 		65D0B14E1215A44B00752C66 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0B1471215A44B00752C66 /* SRRecorderCell.m */; };
 		65D0B14F1215A44B00752C66 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0B1491215A44B00752C66 /* SRRecorderControl.m */; };
 		65D0B1501215A44B00752C66 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D0B14B1215A44B00752C66 /* SRValidator.m */; };
-		65D0B1551215A4ED00752C66 /* LoginItemsAE.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D0B1531215A4ED00752C66 /* LoginItemsAE.c */; };
 		65D0B15C1215A61900752C66 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D0B15B1215A61900752C66 /* Sparkle.framework */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		B5120F950D806E2C00BA8F30 /* IsoStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5120F940D806E2C00BA8F30 /* IsoStatusItemView.m */; };
@@ -66,8 +65,6 @@
 		65D0B1491215A44B00752C66 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRRecorderControl.m; path = Source/SRRecorderControl.m; sourceTree = "<group>"; };
 		65D0B14A1215A44B00752C66 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRValidator.h; path = Source/SRValidator.h; sourceTree = "<group>"; };
 		65D0B14B1215A44B00752C66 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = Source/SRValidator.m; sourceTree = "<group>"; };
-		65D0B1531215A4ED00752C66 /* LoginItemsAE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = LoginItemsAE.c; sourceTree = "<group>"; };
-		65D0B1541215A4ED00752C66 /* LoginItemsAE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginItemsAE.h; sourceTree = "<group>"; };
 		65D0B15B1215A61900752C66 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Isolator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Isolator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,8 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				B5BF91D40B7FC2650065228C /* CGSPrivate.h */,
-				65D0B1531215A4ED00752C66 /* LoginItemsAE.c */,
-				65D0B1541215A4ED00752C66 /* LoginItemsAE.h */,
 				32CA4F630368D1EE00C91783 /* Isolator_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -314,7 +309,6 @@
 				65D0B14E1215A44B00752C66 /* SRRecorderCell.m in Sources */,
 				65D0B14F1215A44B00752C66 /* SRRecorderControl.m in Sources */,
 				65D0B1501215A44B00752C66 /* SRValidator.m in Sources */,
-				65D0B1551215A4ED00752C66 /* LoginItemsAE.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
