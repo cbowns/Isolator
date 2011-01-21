@@ -711,7 +711,11 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 
 	int nWindows;
 	
-	CGSGetOnScreenWindowCount(myCid, cid, &nWindows); 
+	CGSGetOnScreenWindowCount(myCid, cid, &nWindows);
+	if (nWindows == 0) {
+		nWindows = 1;
+		NSLog(@"Setting list to size 1 to avoid a CG API error");
+	}
 	CGSWindow list[nWindows];
 	CGSGetOnScreenWindowList(myCid, cid, nWindows, list, &nWindows);
 	
