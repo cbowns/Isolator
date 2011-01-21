@@ -139,15 +139,15 @@ static void resolveHSV(float *color1, float *color2);
   CTGradientElement color1;
   CTGradientElement color2;
   
-  [[begin colorUsingColorSpaceName:NSCalibratedRGBColorSpace] getRed:&color1.red
-															   green:&color1.green
-																blue:&color1.blue
-															   alpha:&color1.alpha];
+  [[begin colorUsingColorSpaceName:NSCalibratedRGBColorSpace] getRed:(CGFloat *)&color1.red
+															   green:(CGFloat *)&color1.green
+																blue:(CGFloat *)&color1.blue
+															   alpha:(CGFloat *)&color1.alpha];
   
-  [[end   colorUsingColorSpaceName:NSCalibratedRGBColorSpace] getRed:&color2.red
-															   green:&color2.green
-																blue:&color2.blue
-															   alpha:&color2.alpha];  
+  [[end   colorUsingColorSpaceName:NSCalibratedRGBColorSpace] getRed:(CGFloat *)&color2.red
+															   green:(CGFloat *)&color2.green
+																blue:(CGFloat *)&color2.blue
+															   alpha:(CGFloat *)&color2.alpha];  
   color1.position = 0;
   color2.position = 1;
   
@@ -532,10 +532,10 @@ static void resolveHSV(float *color1, float *color2);
   CTGradientElement newGradientElement;
   
   //put the components of color into the newGradientElement - must make sure it is a RGB color (not Gray or CMYK) 
-  [[color colorUsingColorSpaceName:NSCalibratedRGBColorSpace] getRed:&newGradientElement.red
-															   green:&newGradientElement.green
-																blue:&newGradientElement.blue
-															   alpha:&newGradientElement.alpha];
+  [[color colorUsingColorSpaceName:NSCalibratedRGBColorSpace] getRed:(CGFloat *)&newGradientElement.red
+															   green:(CGFloat *)&newGradientElement.green
+																blue:(CGFloat *)&newGradientElement.blue
+															   alpha:(CGFloat *)&newGradientElement.alpha];
   newGradientElement.position = position;
   
   //Pass it off to addElement to take care of adding it to the elementList
@@ -799,8 +799,8 @@ static void resolveHSV(float *color1, float *color2);
     
   CGFunctionCallbacks evaluationCallbackInfo = {0 , evaluationFunction, NULL};	//Version, evaluator function, cleanup function
   
-  static const float input_value_range   [2] = { 0, 1 };						//range  for the evaluator input
-  static const float output_value_ranges [8] = { 0, 1, 0, 1, 0, 1, 0, 1 };		//ranges for the evaluator output (4 returned values)
+  static const CGFloat input_value_range   [2] = { 0, 1 };						//range  for the evaluator input
+  static const CGFloat output_value_ranges [8] = { 0, 1, 0, 1, 0, 1, 0, 1 };		//ranges for the evaluator output (4 returned values)
   
   gradientFunction = CGFunctionCreate(&elementList,					//the two transition colors
 									  1, input_value_range  ,		//number of inputs (just fraction of progression)
