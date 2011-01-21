@@ -393,10 +393,8 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	NSEnumerator *enumerator = [frames objectEnumerator];
 	NSValue* frame;
 	BlackWindow* window;
-	NSRect thisRect;
 	
 	while ( (frame = [enumerator nextObject]) ) {
-		thisRect = frame.rectValue;
 		window = [[BlackWindow alloc] initWithFrame:[frame rectValue]];
 		[blackWindows addObject:window];
 	}
