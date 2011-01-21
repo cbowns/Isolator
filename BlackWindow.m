@@ -84,7 +84,7 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 	CGSConnection connection  = _CGSDefaultConnection();
 		
 	// CIPixellate CIGaussianBlur CIMotionBlur CICrystallize CIPointillize CIBloom
-	NSString* filterName;
+	NSString* filterName = @"";
 	
 	// remove any existing filter
 	CGSCIFilterID oldFilter = 0;
