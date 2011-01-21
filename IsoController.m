@@ -724,6 +724,9 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	OSStatus err;
 	for (ii=0;ii<nWindows;ii++) {
 		err = CGSGetWindowLevel(myCid, list[ii], &level);
+		if (err) {
+			continue;
+		}
 		if (level==0) {
 			relevantList[nRelevantWindows] = list[ii];
 			nRelevantWindows++;
