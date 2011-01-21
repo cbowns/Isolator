@@ -198,15 +198,15 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
 	[self setCollectionBehavior:(NSWindowCollectionBehaviorCanJoinAllSpaces|NSWindowCollectionBehaviorTransient)];
-	NSLog(@"10.6!");
+//	NSLog(@"10.6 (or 10.7?)");
 #else // not 10.6 or greater
-	NSLog(@"10.5?");
+//	NSLog(@"10.5?");
 #if not defined(__LP64__)
 //	this is only available in 32-bit 10.5 SDK
 	[self _setFlags:(CGSTagSticky | CGSTagNoShadow | CGSTagExposeFade) clear:0];
-	NSLog(@"LP64!");
+//	NSLog(@"LP64!");
 #else // not __LP64__
-	NSLog(@"not LP64?!");
+//	NSLog(@"not LP64?!");
 #endif
 #endif
 }
