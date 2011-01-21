@@ -98,17 +98,7 @@ const NSTimeInterval kMinFadeRepeatTime= 0.01;
 	NSArray *optionNames = nil;
 	NSArray *optionVals = nil;
 
-	if (filterName = [defaults objectForKey:@"CustomFilter"]) {
-		NSString* optionName;
-		if (!(optionName = [defaults objectForKey:@"CustomFilterOptionName"]))
-			optionName = @"inputRadius";
-		optionNames = [NSArray arrayWithObjects:optionName, nil];
-		float optionMultiplier;
-		if (!(optionMultiplier = [defaults floatForKey:@"CustomFilterOptionMultiplier"]))
-			optionMultiplier = 1;
-		optionVals  = [NSArray arrayWithObjects:[NSNumber numberWithFloat:(paramVal*optionMultiplier)], nil];
-	}
-	else if (filterType==0) {
+	if (filterType==0) {
 		// do nothing, we've just removed all filters which is all we need to do
 		if (oldFilter) {
 			CGSRemoveWindowFilter(connection, [self windowNumber], oldFilter);
