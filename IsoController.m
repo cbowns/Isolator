@@ -984,7 +984,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 
 	NSDictionary** errorInfo;
 	NSAppleEventDescriptor* result;
-	if (result = [getDockAutohideScript executeAndReturnError:errorInfo])
+	if ( (result = [getDockAutohideScript executeAndReturnError:errorInfo]) )
 		dockAutohide = [result booleanValue];
 }
 
@@ -1003,7 +1003,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	
 	NSDictionary** errorInfo;
 	NSAppleEventDescriptor* result;
-	if (result = [getDockAutohideScript executeAndReturnError:errorInfo]) {
+	if ( (result = [getDockAutohideScript executeAndReturnError:errorInfo]) ) {
 		return [result booleanValue];
 	}
 	else {
