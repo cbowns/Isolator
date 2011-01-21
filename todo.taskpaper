@@ -2,16 +2,8 @@ Isolator:
 	- get off CTGradient, move to NSGradient
 	- kill LoginItemsAE.(hc)
 	- zero warnings
-	- fix CG API errors
-
-
-
-
-
-
-
-	
 Archive:
+	- fix CG API errors @done(2011-01-20) @project(Isolator)
 	- properly link in Sparkle @done(2011-01-17) @project(Isolator)
 		- remove deprecated callbacks and calls
 	- build against x86_64 @done(2011-01-19) @project(Isolator)
