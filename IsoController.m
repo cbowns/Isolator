@@ -980,7 +980,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 		return;
 	}
 
-	NSDictionary** errorInfo;
+	NSDictionary** errorInfo = nil;
 	NSAppleEventDescriptor* result;
 	if ( (result = [getDockAutohideScript executeAndReturnError:errorInfo]) )
 		dockAutohide = [result booleanValue];
@@ -999,7 +999,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	if (![defaults boolForKey:@"RunningOnLeopard"])
 		return NO;
 	
-	NSDictionary** errorInfo;
+	NSDictionary** errorInfo = nil;
 	NSAppleEventDescriptor* result;
 	if ( (result = [getDockAutohideScript executeAndReturnError:errorInfo]) ) {
 		return [result booleanValue];
@@ -1015,7 +1015,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 	if (![defaults boolForKey:@"RunningOnLeopard"])
 		return;
 
-	NSDictionary** errorInfo;
+	NSDictionary** errorInfo = nil;
 	if (hide)
 		[setDockAutohideTrueScript executeAndReturnError:errorInfo];
 	else
