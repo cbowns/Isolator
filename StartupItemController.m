@@ -69,7 +69,7 @@
 {
 	// Look up our bundle path
 	NSString *appPath = [[NSBundle mainBundle] bundlePath];
-	CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:appPath];
+	CFURLRef url;
 	
 	// Create a reference to the shared file list.
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
@@ -87,12 +87,12 @@
 				if ([urlPath compare:appPath] == NSOrderedSame) {
 					LSSharedFileListItemRemove(loginItems,itemRef);
 				}
+				CFRelease(url);
 			}
 		}
 		[loginItemsArray release];
 		CFRelease(loginItems);
 	}
-	CFRelease(url);
 }
 
 -(void) addStartupItem
