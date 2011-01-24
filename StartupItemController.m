@@ -82,7 +82,7 @@
 			//Resolve the item with URL
 			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
 				NSString * urlPath = [(NSURL*)url path];
-				if ([urlPath compare:appPath] == NSOrderedSame){
+				if ([urlPath compare:appPath] == NSOrderedSame) {
 					LSSharedFileListItemRemove(loginItems,itemRef);
 				}
 			}
