@@ -92,6 +92,7 @@
 		[loginItemsArray release];
 		CFRelease(loginItems);
 	}
+	CFRelease(url);
 }
 
 -(void) addStartupItem
