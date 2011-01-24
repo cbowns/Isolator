@@ -17,105 +17,102 @@
 	return self;
 }
 
--(int) getIdx:(NSArray*)itemArray
-{
-	// see if our bundle identifier is present in the startupitems array
-	// return index if so (starting at zero) or -1 if not
-	
-	int idx = -1;
-	
-	NSEnumerator* enumerator = [itemArray objectEnumerator];
-	
-	NSDictionary* item;
-	NSURL* url;
-	NSString* path;
-	NSBundle* bundle;
-	NSString* bundleID;
-	
-	int thisIdx = 0;
-	while( (item = [enumerator nextObject]) && (idx==-1) ) {
-		url = [item objectForKey:@"URL"];
-		path = [url path];
-		if (path) {
-			bundle = [NSBundle bundleWithPath:path];
-			if (bundle) {
-				bundleID = [bundle bundleIdentifier];
-				if ([bundleID isEqual:[[NSBundle mainBundle] bundleIdentifier]])
-					idx = thisIdx;
-			}
-		}
-		thisIdx++;
-	}
-	return idx;
-}
-
 -(BOOL) enabled
 {
 	// return YES if number of startup items with our bundle identifier is >0
 	
-	OSStatus err;
-	NSArray* itemArray = NULL;
-	int idx = -1;
-
-	err = LIAECopyLoginItems((CFArrayRef*)&itemArray);
+	// Look up our bundle path
+	NSString *appPath = [[NSBundle mainBundle] bundlePath];
 	
-	if (err != noErr)
-		return NO;
+	// Create a reference to the shared file list.
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
 	
-	idx = [self getIdx:itemArray];
-	[itemArray release];
+	// other variables.
+	BOOL currentlyEnabled = NO;
+	UInt32 seedValue;
+	CFURLRef thePath;
 	
-	if (idx>=0)
-		return YES;
-	else
-		return NO;
-
+	// We're going to grab the contents of the shared file list (LSSharedFileListItemRef objects)
+	// and pop it in an array so we can iterate through it to find our item.
+	CFArrayRef loginItemsArray = LSSharedFileListCopySnapshot(loginItems, &seedValue);
+	for (id item in (NSArray *)loginItemsArray) {
+		LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)item;
+		if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &thePath, NULL) == noErr) {
+			if ([[(NSURL *)thePath path] hasPrefix:appPath]) {
+				currentlyEnabled = YES;
+				break;
+			}
+		}
+		CFRelease(thePath); // The docs for LSSharedFileListItemResolve say we have to.
+	}
+	CFRelease(loginItemsArray);
+	CFRelease(loginItems);
+	
+	return currentlyEnabled;
 }
 
--(void) setEnabled:(BOOL)value
-{
-	// remove all existing startup items with our bundle identifier, and then
-	// add one new one if value==YES
+-(void) openAtLogin:(BOOL)wantEnabled
+{	
+	BOOL currentlyEnabled = [self enabled];
 	
-	if ([self enabled])
-		[self removeStartupItem];
-	
-	if (value)
+	// if we're enabled
+	if (!currentlyEnabled && wantEnabled) {
 		[self addStartupItem];
+	} else if (currentlyEnabled && !wantEnabled) {
+		[self removeStartupItem];
+	}
 }
-
 
 -(void) removeStartupItem
 {
-	// remove all existing startup items with our bundle identifier
+	// Look up our bundle path
+	NSString *appPath = [[NSBundle mainBundle] bundlePath];
+	CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:appPath];
 	
-	OSStatus err;
-	NSArray* itemArray = NULL;
-	
-	int idx = 0;
+	// Create a reference to the shared file list.
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
 
-	while (idx>=0) {
-		err = LIAECopyLoginItems((CFArrayRef*)&itemArray);
-	
-		if (err != noErr)
-			return;
-	
-		idx = [self getIdx:itemArray];
-
-		[itemArray release];
-		itemArray = NULL;
-		if (idx>=0)
-			LIAERemove(idx);
+	if (loginItems) {
+		UInt32 seedValue;
+		//Retrieve the list of Login Items and cast them to
+		// a NSArray so that it will be easier to iterate.
+		NSArray *loginItemsArray = (NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
+		for (int i = 0; i < [loginItemsArray count]; i++){
+			LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)[loginItemsArray
+																		objectAtIndex:i];
+			//Resolve the item with URL
+			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
+				NSString * urlPath = [(NSURL*)url path];
+				if ([urlPath compare:appPath] == NSOrderedSame){
+					LSSharedFileListItemRemove(loginItems,itemRef);
+				}
+			}
+		}
+		[loginItemsArray release];
+		CFRelease(loginItems);
 	}
 }
 
 -(void) addStartupItem
 {
-	// add startup item
-	NSURL * theURL = [[NSURL URLWithString:[[NSBundle mainBundle] bundlePath]] retain];
-	NSLog(@"%@", theURL);
-	LIAEAddURLAtEnd((CFURLRef)theURL,NO);
-	[theURL release];
+	// Look up our bundle path
+	NSString *appPath = [[NSBundle mainBundle] bundlePath];
+	CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:appPath];
+	
+	// Create a reference to the shared file list.
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
+
+	if (loginItems) {
+		//Insert an item to the list.
+		LSSharedFileListItemRef item = LSSharedFileListInsertItemURL(loginItems,
+																	 kLSSharedFileListItemLast, NULL, NULL,
+																	 url, NULL, NULL);
+		if (item) {
+			CFRelease(item);
+		}
+		// I assume the else case here is failure, but that's how it goes.
+		CFRelease(loginItems);
+	}
 }
-		
+
 @end

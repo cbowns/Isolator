@@ -8,15 +8,13 @@
 
 #import <Carbon/Carbon.h>
 #import <Cocoa/Cocoa.h>
-#import "LoginItemsAE.h"
 
 @interface StartupItemController : NSObject {
 
 }
 
 -(BOOL) enabled;
--(void) setEnabled:(BOOL)value;
+-(void) openAtLogin:(BOOL)value;
 -(void) removeStartupItem;
 -(void) addStartupItem;
-
 @end

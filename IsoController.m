@@ -911,7 +911,7 @@ OSStatus hotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
 
 -(void)setStartupItemEnabled:(BOOL)value
 {
-	[startupItemController setEnabled:value];
+	[startupItemController openAtLogin:value];
 }
 
 -(void)openAboutPanel
