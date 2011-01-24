@@ -40,10 +40,12 @@
 		if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &thePath, NULL) == noErr) {
 			if ([[(NSURL *)thePath path] hasPrefix:appPath]) {
 				currentlyEnabled = YES;
-				break;
 			}
 		}
 		CFRelease(thePath); // The docs for LSSharedFileListItemResolve say we have to.
+		if (currentlyEnabled) {
+			break;
+		}
 	}
 	CFRelease(loginItemsArray);
 	CFRelease(loginItems);
