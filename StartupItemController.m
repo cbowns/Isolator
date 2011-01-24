@@ -57,18 +57,18 @@
 {	
 	BOOL currentlyEnabled = [self enabled];
 	
-	// if we're enabled
+	// Look up our bundle path
+	NSString *appPath = [[NSBundle mainBundle] bundlePath];
+	
 	if (!currentlyEnabled && wantEnabled) {
-		[self addStartupItem];
+		[self addStartupItem:appPath];
 	} else if (currentlyEnabled && !wantEnabled) {
-		[self removeStartupItem];
+		[self removeStartupItem:appPath];
 	}
 }
 
--(void) removeStartupItem
+-(void) removeStartupItem:(NSString *)appPath
 {
-	// Look up our bundle path
-	NSString *appPath = [[NSBundle mainBundle] bundlePath];
 	CFURLRef url;
 	
 	// Create a reference to the shared file list.
@@ -95,10 +95,8 @@
 	}
 }
 
--(void) addStartupItem
+-(void) addStartupItem:(NSString *)appPath
 {
-	// Look up our bundle path
-	NSString *appPath = [[NSBundle mainBundle] bundlePath];
 	CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:appPath];
 	
 	// Create a reference to the shared file list.

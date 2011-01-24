@@ -15,6 +15,6 @@
 
 -(BOOL) enabled;
 -(void) openAtLogin:(BOOL)value;
--(void) removeStartupItem;
--(void) addStartupItem;
+-(void) removeStartupItem:(NSString *)appPath;
+-(void) addStartupItem:(NSString *)appPath;
 @end
