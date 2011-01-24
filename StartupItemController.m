@@ -77,9 +77,8 @@
 		//Retrieve the list of Login Items and cast them to
 		// a NSArray so that it will be easier to iterate.
 		NSArray *loginItemsArray = (NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
-		for (int i = 0; i < [loginItemsArray count]; i++){
-			LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)[loginItemsArray
-																		objectAtIndex:i];
+		for (id item in (NSArray *)loginItemsArray) {
+			LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)item;
 			//Resolve the item with URL
 			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
 				NSString * urlPath = [(NSURL*)url path];
